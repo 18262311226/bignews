@@ -42,23 +42,43 @@ form.verify({
   ]
 });
 
-$(".register .myForm").on("submit",function(e){
-    e.preventDefault();
-
+$(".registerbtn").click(function(){
     $.ajax({
-        type:"post",
-        url:"http://ajax.frontend.itheima.net/api/reguser",
-        data:$(this).serialize(),
-        success:function(res){
-            if(res.status == 0){
-                $(".login").show().next().hide();
-            }else{
-                layer.open({
-                    title: '温馨提示',
-                    content: res.message,
-                    time:2000
-                  });
-            }
+      type:"post",
+      url:"http://ajax.frontend.itheima.net/api/reguser",
+      data:$(".myForm").serialize(),
+      success:function(res){
+        if(res.status == 0){
+            $(".login").show().next().hide();
         }
+        else{
+            layer.open({
+                title: '温馨提示',
+                content: res.message,
+                time:2000
+            });
+        }
+      }
     })
-});
+})
+
+// $(".register .myForm").on("submit",function(e){
+//     e.preventDefault();
+
+//     $.ajax({
+//         type:"post",
+//         url:"http://ajax.frontend.itheima.net/api/reguser",
+//         data:$(this).serialize(),
+//         success:function(res){
+//             if(res.status == 0){
+//                 $(".login").show().next().hide();
+//             }else{
+//                 layer.open({
+//                     title: '温馨提示',
+//                     content: res.message,
+//                     time:2000
+//                   });
+//             }
+//         }
+//     })
+// });
