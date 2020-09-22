@@ -69,13 +69,10 @@ body{
     text-align:right;
 }
 
-.login{
+
+.register{
     display:none;
 }
-
-/* .register{
-    display:none;
-} */
 
 .title{
     padding-top:18px;

@@ -18,17 +18,17 @@
             <img src="assets/images/login_title.png" alt="">
         </div>
 
-        <form class="layui-form">
+        <form class="layui-form myForm">
             <div class="layui-form-item">
                 <span class="layui-icon layui-icon-username"></span>
-                <input type="text" name="username" required  lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input username">
+                <input type="text" name="username" required  lay-verify="required|username" placeholder="请输入用户名" autocomplete="off" class="layui-input username">
             </div>
             <div class="layui-form-item">
                 <span class="layui-icon layui-icon-password"></span>
-                <input type="password" name="password" required  lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input password">
+                <input type="password" name="password" required  lay-verify="required|pass" placeholder="请输入密码" autocomplete="off" class="layui-input password">
             </div>
             <div class="layui-form-item">
-                <div class="layui-btn layui-btn-normal layui-btn-fluid loginbtn">登 录</div>
+                <div class="layui-btn layui-btn-normal layui-btn-fluid loginbtn"lay-submit lay-filter="formDemo">登 录</div>
             </div>
             <div class="layui-form-item">
                 <a href="javascript:;" class="toreg">去注册</a>
@@ -65,5 +65,6 @@
 </body>
 <script src="assets/lib/layui/layui.all.js"></script>
 <script src="assets/lib/jquery.js"></script>
+<script src="assets/js/utils.js"></script>
 <script src="assets/js/login.js"></script>
 </html>

@@ -45,8 +45,8 @@ form.verify({
 $(".registerbtn").click(function(){
     $.ajax({
       type:"post",
-      url:"http://ajax.frontend.itheima.net/api/reguser",
-      data:$(".myForm").serialize(),
+      url:"/api/reguser",
+      data:$(".register .myForm").serialize(),
       success:function(res){
         if(res.status == 0){
             $(".login").show().next().hide();
@@ -62,23 +62,21 @@ $(".registerbtn").click(function(){
     })
 })
 
-// $(".register .myForm").on("submit",function(e){
-//     e.preventDefault();
-
-//     $.ajax({
-//         type:"post",
-//         url:"http://ajax.frontend.itheima.net/api/reguser",
-//         data:$(this).serialize(),
-//         success:function(res){
-//             if(res.status == 0){
-//                 $(".login").show().next().hide();
-//             }else{
-//                 layer.open({
-//                     title: '温馨提示',
-//                     content: res.message,
-//                     time:2000
-//                   });
-//             }
-//         }
-//     })
-// });
+$(".loginbtn").click(function(){
+  $.ajax({
+    type:"post",
+    url:"/api/login",
+    data:$(".login .myForm").serialize(),
+    success:function(res){
+      layer.open({
+        title: '温馨提示',
+        content: res.message,
+        time:2000
+      });
+      if(res.status == 0){
+          window.localStorage.setItem("token",res.token);
+          location.href = "index.html";
+      }
+    }
+  })
+})
