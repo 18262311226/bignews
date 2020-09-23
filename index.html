@@ -19,12 +19,12 @@
               个人中心
             </a>
             <dl class="layui-nav-child">
-              <dd><a href="javascript:;">基本资料</a></dd>
-              <dd><a href="javascript:;">更换头像</a></dd>
-              <dd><a href="javascript:;">重置密码</a></dd>
+              <dd><a href="user/user_info.html" target="main_iframe">基本资料</a></dd>
+              <dd><a href="user/user_avater.html" target="main_iframe">更换头像</a></dd>
+              <dd><a href="user/user_reset.html" target="main_iframe">重置密码</a></dd>
             </dl>
           </li>
-          <li class="layui-nav-item"><a href="javascript:;">退出</a></li>
+          <li class="layui-nav-item"><a href="javascript:;" class="loginout">退出</a></li>
         </ul>
       </div>
       
@@ -40,7 +40,7 @@
           <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
           <ul class="layui-nav layui-nav-tree"lay-filter="test" lay-shrink="all">
             <li class="layui-nav-item">
-                <a href="javascript:;">首页</a>
+                <a href="home/dashboard.html" target = "main_iframe">首页</a>
             </li>
             <li class="layui-nav-item">
               <a class="" href="javascript:;">文章管理</a>
@@ -53,9 +53,9 @@
             <li class="layui-nav-item">
               <a href="javascript:;">个人中心</a>
               <dl class="layui-nav-child">
-                <dd><a href="javascript:;">基本资料</a></dd>
-                <dd><a href="javascript:;">更换头像</a></dd>
-                <dd><a href="javascript:;">重置密码</a></dd>
+                <dd><a href="user/user_info.html" target="main_iframe">基本资料</a></dd>
+                <dd><a href="user/user_avater.html" target="main_iframe">更换头像</a></dd>
+                <dd><a href="user/user_reset.html" target="main_iframe">重置密码</a></dd>
               </dl>
             </li>
           </ul>
@@ -64,7 +64,7 @@
       
       <div class="layui-body">
         <!-- 内容主体区域 -->
-        <div style="padding: 15px;">内容主体区域</div>
+        <iframe name = "main_iframe" src="home/dashboard.html" frameborder="0" width="100%" height = "100%"></iframe>
       </div>
       
       <div class="layui-footer heimafoot">
@@ -77,4 +77,5 @@
 <script src="assets/lib/jquery.js"></script>
 <script src="assets/js/utils.js"></script>
 <script src="assets/js/index.js"></script>
+
 </html>
