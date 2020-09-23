@@ -10,7 +10,7 @@ $.ajax({
         if(res.data.user_pic){
             $(".userinfo .layui-nav-img").show().attr("src",res.data.user_pic);
             $(".layui-tx .layui-nav-img").show().attr("src",res.data.user_pic);
-            $(".userinfo .text-avater,layui-tx .text-avater").hiden();
+            $(".userinfo .text-avater,.layui-tx .text-avater").hide();
         }else{
             $(".userinfo .text-avater").text(res.data.username.slice(0,1).toUpperCase());
             $(".layui-tx .text-avater").text(res.data.username.slice(0,1).toUpperCase());
