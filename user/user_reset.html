@@ -8,7 +8,36 @@
     <link rel="stylesheet" href="../assets/css/user_reset.css">
 </head>
 <body>
-    <h2>我是更改密码页面</h2>
+    <div class="layui-card">
+        <div class="layui-card-header">修改用户密码</div>
+        <div class="layui-card-body">
+            <form class="layui-form myForm" lay-filter="myForm">
+                <div class="layui-form-item">
+                  <label class="layui-form-label">原密码</label>
+                  <div class="layui-input-block">
+                    <input type="password" name="oldPwd" required  lay-verify="required|pass" placeholder="请输入原密码" autocomplete="off" class="layui-input">
+                  </div>
+                </div>
+                <div class="layui-form-item">
+                  <label class="layui-form-label">新密码</label>
+                  <div class="layui-input-block">
+                    <input type="password" name="newPwd" required lay-verify="required|pass" placeholder="请输入新密码" autocomplete="off" class="layui-input">
+                  </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">确认新密码</label>
+                    <div class="layui-input-block">
+                      <input type="password" required lay-verify="required|pass|repass" placeholder="确认新密码" autocomplete="off" class="layui-input">
+                    </div>
+                  </div>
+                <div class="layui-form-item">
+                  <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">修改</button>
+                  </div>
+                </div>
+              </form>
+        </div>
+      </div>
 </body>
 <script src="../assets/lib/layui/layui.all.js"></script>
 <script src="../assets/lib/jquery.js"></script>

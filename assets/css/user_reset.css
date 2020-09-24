@@ -1,0 +1,7 @@
+body{
+    padding:15px;
+    background:#ccc;
+}
+.layui-input{
+    width:400px;
+}
