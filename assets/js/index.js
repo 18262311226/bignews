@@ -1,20 +1,27 @@
-$.ajax({
-    type:"get",
-    url:"/my/userinfo",
-    success:function(res){
-        if(res.status === 0){
-            $(".userinfo .welcome").html(`欢迎&nbsp;&nbsp;${res.data.username}`);
-            if(res.data.user_pic){
-                $(".userinfo .layui-nav-img").show().attr("src",res.data.user_pic);
-                $(".layui-tx .layui-nav-img").show().attr("src",res.data.user_pic);
-                $(".userinfo .text-avater,.layui-tx .text-avater").hide();
-            }else{
-                $(".userinfo .text-avater").text(res.data.username.slice(0,1).toUpperCase());
-                $(".layui-tx .text-avater").text(res.data.username.slice(0,1).toUpperCase());
+getuserinfo();
+function getuserinfo(){
+    $.ajax({
+        type:"get",
+        url:"/my/userinfo",
+        success:function(res){
+            if(res.status === 0){
+                $(".userinfo .welcome").html(`欢迎&nbsp;&nbsp;${res.data.username}`);
+                if(res.data.user_pic){
+                    $(".userinfo .layui-nav-img").show().attr("src",res.data.user_pic);
+                    $(".layui-tx .layui-nav-img").show().attr("src",res.data.user_pic);
+                    $(".userinfo .text-avater,.layui-tx .text-avater").hide();
+                }else{
+                    $(".userinfo .text-avater").text(res.data.username.slice(0,1).toUpperCase());
+                    $(".layui-tx .text-avater").text(res.data.username.slice(0,1).toUpperCase());
+                }
             }
         }
-    }
-});
+    });
+}
+
+
+
+window.getuserinfo = getuserinfo;
 
 $(".loginout").click(function(){
     layer.confirm('确定退出?', {icon: 3, title:'提示'}, function(index){
