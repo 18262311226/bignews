@@ -8,9 +8,70 @@
     <link rel="stylesheet" href="../assets/css/article_category.css">
 </head>
 <body>
-    <h2>这是文章分类页面</h2>
+    <div class="layui-card">
+        <div class="layui-card-header">
+            <span>文章分类</span>
+            <button type="button" class="layui-btn layui-btn-sm layui-btn-normal btn-add">添加分类</button>
+        </div>
+        <div class="layui-card-body">
+            <table class="layui-table">
+                <colgroup>
+                  <col>
+                  <col>
+                  <col width="200">
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>分类名称</th>
+                    <th>分类类别</th>
+                    <th>操作</th>
+                  </tr> 
+                </thead>
+                <tbody>
+                    
+                </tbody>
+              </table>
+        </div>
+      </div>
+    
 </body>
+<script type="text/html" id = "loadtemp">
+    {{each data v}}
+    <tr>
+        <td>{{v.name}}</td>
+        <td>{{v.alias}}</td>
+        <td>
+            <button type="button" class="layui-btn layui-btn-xs" data-id = "{{v.Id}}">编辑</button>
+            <button type="button" class="layui-btn layui-btn-xs layui-btn-danger delbtn" data-id = "{{v.Id}}">删除</button>
+        </td>
+      </tr>
+      {{/each}}
+</script>
+
+<script type="text/html" id="addtemp">
+    <form class="layui-form myForm addForm" lay-filter="myForm">
+        <div class="layui-form-item">
+          <label class="layui-form-label">分类名称</label>
+          <div class="layui-input-inline">
+            <input type="text" name="name" required  lay-verify="required|username" placeholder="请输入分类名称" autocomplete="off" class="layui-input">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">分类类别</label>
+          <div class="layui-input-inline">
+            <input type="text" name="alias" required lay-verify="required|username" placeholder="请输入分类类别" autocomplete="off" class="layui-input">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <div class="layui-input-block">
+            <button class="layui-btn btnSure" lay-submit lay-filter="formDemo">确认</button>
+            <button type="reset" class="layui-btn layui-btn-primary fassbtn">取消</button>
+          </div>
+        </div>
+      </form>
+</script>
 <script src="../assets/lib/layui/layui.all.js"></script>
+<script src="../assets/lib/template-web.js"></script>
 <script src="../assets/lib/jquery.js"></script>
 <script src="../assets/js/utils.js"></script>
 <script src="../assets/js/article_category.js"></script>
