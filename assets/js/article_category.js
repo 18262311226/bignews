@@ -55,7 +55,7 @@ $("body").on("submit",".addForm",function(e){
 $("tbody").on("click",".delbtn",function(){
     var id = $(this).data("id");
     console.log(id);
-    layer.confirm('温馨提示', { icon: 3, title: '提示' }, function (index) {
+    layer.confirm('确认删除？', { icon: 3, title: '提示' }, function (index) {
 
     $.ajax({
         type:"get",
