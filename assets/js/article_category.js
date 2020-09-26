@@ -1,8 +1,10 @@
+var resinfo;
 function rendertext(){
     $.ajax({
         type:"get",
         url:"/my/article/cates",
         success:function(res){
+            resinfo = res;
             if(res.status==0){
                 var gettexthtml = template("loadtemp",res); 
                 $("tbody").html(gettexthtml);
@@ -54,7 +56,6 @@ $("body").on("submit",".addForm",function(e){
 
 $("tbody").on("click",".delbtn",function(){
     var id = $(this).data("id");
-    console.log(id);
     layer.confirm('确认删除？', { icon: 3, title: '提示' }, function (index) {
 
     $.ajax({
@@ -68,4 +69,39 @@ $("tbody").on("click",".delbtn",function(){
         }
     })
 });
+})
+
+
+$("body").on("click",".btn-write",function(){
+    var id = $(this).data("id");
+    window.addindex=layer.open({
+        type:1,
+        title: '编辑分类',
+        area:"520px",
+        content: $("#writetemp").html()
+    });
+    for(var i = 0;i < resinfo.data.length;i++){
+        var item = resinfo.data[i];
+        if(item.Id == id){
+            $(".writeid").val(item.Id);
+            $(".fenleiname").val(item.name);
+            $(".leibie").val(item.alias);
+            break;
+        }
+    }
+})
+
+$("body").on("submit",".writeForm",function(e){
+    e.preventDefault();
+    $.ajax({
+        type:"post",
+        url:"/my/article/updatecate",
+        data:$(this).serialize(),
+        success:function(res){
+            if(res.status == 0){
+                layer.close(addindex);
+                rendertext();
+            }
+        }
+    })
 })
