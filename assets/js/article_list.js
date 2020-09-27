@@ -38,13 +38,12 @@ var params = {
   // 3. 实现筛选功能
   // 3.1 给form表单注册事件 通过button按钮来触发
   $('.myForm').on('submit', function (e) {
-    console.log(1122336)
     // 3.2 阻止默认请示行为
     e.preventDefault()
     // 3.3 发送ajax请示 获取数据
     // 单击了筛选按钮之后，应该要根据分类和状态来筛选数据
-    params.cate_id = $('#category').val()
-    params.state = $('#state').val()
+    params.cate_id = $('.category').val()
+    params.state = $('.state').val()
     renderList()  // 用上面的新的数据来发送请求
    
   })
